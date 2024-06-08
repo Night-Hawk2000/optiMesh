@@ -1,0 +1,7 @@
+#!/bin/bash
+cd ${0%/*}
+
+wclean optiMesh
+wclean removeCells
+wclean collapseCells
+
