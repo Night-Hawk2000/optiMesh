@@ -27,7 +27,7 @@ outer {
   r1  1.41421356;
 }
 
-convertToMeters 1;
+scale 1;
 
 vertices
 (

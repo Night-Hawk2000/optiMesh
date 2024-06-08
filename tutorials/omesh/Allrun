@@ -9,6 +9,5 @@ runApplication blockMesh
 
 runApplication setSet -batch system/pointSetBatch
 
-runApplication cp -rf -T 0.orig 0
 
 runApplication optiMesh

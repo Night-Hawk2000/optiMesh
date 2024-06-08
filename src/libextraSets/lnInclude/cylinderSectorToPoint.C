@@ -1,1 +1,0 @@
-../cylinderSectorToPoint/cylinderSectorToPoint.C

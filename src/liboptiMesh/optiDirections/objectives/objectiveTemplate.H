@@ -33,7 +33,7 @@ void objective::faceCentreAndNormal(const label& faceI, const List<PointType>& p
   // first calculate the simple centre
   if (fcType_ == simple || fcType_ == triangles) {
     forAll(f, i) {
-      const PointType& p = points[findIndex(pointIds, f[i])];
+      const PointType& p = points[pointIds.find( f[i])];
 
       centre += p;
     }
@@ -49,8 +49,8 @@ void objective::faceCentreAndNormal(const label& faceI, const List<PointType>& p
   ScalarType area_(0.0);
 
   forAll(f, i) {
-    const PointType& p = points[findIndex(pointIds, f[i])];
-    const PointType& q = points[findIndex(pointIds, f[(i+1)%f.size()])];
+    const PointType& p = points[pointIds.find( f[i])];
+    const PointType& q = points[pointIds.find( f[(i+1)%f.size()])];
 
     // do slightly different things in the loop depending on the fcType_
     if (fcType_ == simple || fcType_ == gauss) {
@@ -106,7 +106,7 @@ void objective::faceCentreAndNormal(const label& faceI, const List<PointType>& p
 
   
   if (debug_) {
-    compareToNative(normal, f.normal(mesh_.points()), "faceNormal wrong");
+    compareToNative(normal, f.areaNormal(mesh_.points()), "faceNormal wrong");
 
     compareToNative(centre, f.centre(mesh_.points()), "faceCentre wrong");
   }

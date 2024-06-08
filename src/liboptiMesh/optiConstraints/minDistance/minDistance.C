@@ -1,7 +1,6 @@
 #include "minDistance.H"
 #include "addToRunTimeSelectionTable.H"
 
-
 namespace Foam
 {
 namespace optiMesh
@@ -22,7 +21,7 @@ minDistance::minDistance(const fvMesh& mesh, const dictionary& dict) :
   absDist_(dict.lookupOrDefault<scalar>("absDist", 0.0))
 {
   // fixed point set
-  pointSet fixedSet(mesh, dict.lookup("fixedSet"));
+  pointSet fixedSet(mesh, word("fixedSet"),HashSet(dict.lookup("fixedSet")));
 
   // init the lists
   active_ = List<bool>(this->size(), true);

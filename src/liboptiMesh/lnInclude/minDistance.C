@@ -1,1 +1,0 @@
-../optiConstraints/minDistance/minDistance.C

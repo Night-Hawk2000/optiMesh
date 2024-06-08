@@ -1,1 +1,0 @@
-../optiDirections/objectives/objectiveTemplate.H

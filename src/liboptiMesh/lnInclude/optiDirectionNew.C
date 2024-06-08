@@ -1,1 +1,0 @@
-../optiDirections/optiDirection/optiDirectionNew.C

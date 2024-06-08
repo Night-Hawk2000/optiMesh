@@ -1,1 +1,0 @@
-../optiDirections/optiDirection/optiDirection.H

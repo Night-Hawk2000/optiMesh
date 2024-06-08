@@ -1,4 +1,0 @@
-SOURCE = \
-halfSpaceToCell/halfSpaceToCell.C \
-cylinderSectorToPoint/cylinderSectorToPoint.C \
-minHexAspectRatio/minHexAspectRatio.C 

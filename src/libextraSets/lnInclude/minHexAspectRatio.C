@@ -1,1 +1,0 @@
-../minHexAspectRatio/minHexAspectRatio.C
