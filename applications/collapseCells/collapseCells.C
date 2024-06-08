@@ -73,8 +73,7 @@ void alignFace(face& fNewUnique, const label& ownerI,
     const label& neighbourI, const fvMesh& mesh)
 {
   point c = fNewUnique.centre(mesh.points());
-  vector n = fNewUnique.normal(mesh.points());
-  n /= mag(n);
+  vector n = fNewUnique.unitNormal(mesh.points());
   point co = mesh.cellCentres()[ownerI];
 
   if (neighbourI == -1) {
@@ -111,7 +110,7 @@ void collectConnectedPoints(const label& pointI, const fvMesh& mesh,
     vector diff = p - otherP;
 
     if (mag(diff) < tol) {
-      if (findIndex(connectedPointIds, otherI) == -1) {
+      if (connectedPointIds.find(otherI) == -1) {
         connectedPointIds.append(otherI);
         collectConnectedPoints(otherI, mesh, connectedPointIds, tol);
       }
@@ -247,7 +246,7 @@ void collectConnectedFaces(const label& faceI, const List<point>& faceCentres,
       scalar d = mag(faceP - otherP);
 
       if (otherI != faceI && d < tol) {
-        if (findIndex(connectedFaceIds, otherI) == -1) {
+        if (connectedFaceIds.find(otherI) == -1) {
           connectedFaceIds.append(otherI);
 
           // get other cell
